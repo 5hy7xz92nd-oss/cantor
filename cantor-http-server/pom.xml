@@ -78,7 +78,6 @@
             <artifactId>jersey-container-jetty-servlet</artifactId>
             <version>${jersey.version}</version>
         </dependency>
-        <!-- Explicit Jetty versions to prevent mixed Jetty 11/12 classpaths -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
