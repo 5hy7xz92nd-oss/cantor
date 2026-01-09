@@ -18,7 +18,7 @@
 
     <properties>
         <spring.jersey.version>4.0.1</spring.jersey.version>
-        <swagger.version>2.1.11</swagger.version>
+        <swagger.version>2.2.41</swagger.version>
         <swagger.classgraph.version>4.8.131</swagger.classgraph.version>
     </properties>
 
@@ -44,7 +44,7 @@
         <!--SWAGGER-->
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
-            <artifactId>swagger-jaxrs2</artifactId>
+            <artifactId>swagger-jaxrs2-jakarta</artifactId>
             <version>${swagger.version}</version>
             <exclusions>
                 <exclusion>
