@@ -12,18 +12,16 @@ import com.salesforce.cantor.grpc.CantorOnGrpc;
 import com.salesforce.cantor.h2.CantorOnH2;
 import com.salesforce.cantor.h2.H2DataSourceProperties;
 import com.salesforce.cantor.h2.H2DataSourceProvider;
-import com.salesforce.cantor.http.resources.FunctionsResource;
 import com.salesforce.cantor.http.resources.EventsResource;
+import com.salesforce.cantor.http.resources.FunctionsResource;
 import com.salesforce.cantor.http.resources.ObjectsResource;
 import com.salesforce.cantor.http.resources.SetsResource;
 import com.salesforce.cantor.misc.loggable.LoggableCantor;
-
 import com.salesforce.cantor.mysql.CantorOnMysql;
+import org.eclipse.jetty.ee10.servlet.DefaultServlet;
+import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee10.servlet.ServletHolder;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.servlet.DefaultServlet;
-import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
-import org.glassfish.jersey.internal.inject.AbstractBinder;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.slf4j.Logger;
@@ -39,25 +37,23 @@ public class EmbeddedHttpServer {
 
         // bind resources with required constructor parameters
         final Cantor cantor = getCantorOnGrpc();
-        config.register(new AbstractBinder() {
-            @Override
-            protected void configure() {
-                bind(new EventsResource(cantor));
-                bind(new ObjectsResource(cantor));
-                bind(new SetsResource(cantor));
-                bind(new FunctionsResource(cantor));
-            }
-        });
+        config.registerInstances(
+                new EventsResource(cantor),
+                new ObjectsResource(cantor),
+                new SetsResource(cantor),
+                new FunctionsResource(cantor)
+        );
 
         final Server server = new Server(port);
 
         // load jersey servlets
         final ServletHolder jerseyServlet = new ServletHolder(new ServletContainer(config));
-        final ServletContextHandler context = new ServletContextHandler(server, "/");
+        final ServletContextHandler context = new ServletContextHandler("/");
+        server.setHandler(context);
         context.addServlet(jerseyServlet, basePath);
 
         // serve static resources
-        context.setResourceBase("cantor-http-server/src/main/resources/static");
+        context.setBaseResourceAsString("cantor-http-server/src/main/resources/static");
         context.addServlet(DefaultServlet.class, "/");
 
         return server;
