@@ -59,12 +59,8 @@
     <distributionManagement>
         <snapshotRepository>
             <id>nexus-oss</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <url>https://central.sonatype.com/repository/maven-releases/</url>
         </snapshotRepository>
-        <repository>
-            <id>nexus-oss</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
     </distributionManagement>
 
     <developers>
