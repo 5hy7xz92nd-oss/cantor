@@ -57,10 +57,10 @@
     </licenses>
 
     <distributionManagement>
-        <snapshotRepository>
+        <repository>
             <id>nexus-oss</id>
             <url>https://central.sonatype.com/repository/maven-releases/</url>
-        </snapshotRepository>
+        </repository>
     </distributionManagement>
 
     <developers>
