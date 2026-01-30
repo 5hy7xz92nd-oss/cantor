@@ -10,11 +10,11 @@
     <parent>
         <artifactId>cantor-parent</artifactId>
         <groupId>com.salesforce.cantor</groupId>
-        <version>0.5.16-SNAPSHOT</version>
+        <version>0.5.23</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>cantor-functions</artifactId>
+    <name>cantor-functions</name>
 
     <properties>
         <groovy.version>3.0.9</groovy.version>

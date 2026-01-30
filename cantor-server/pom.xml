@@ -10,12 +10,13 @@
     <parent>
         <artifactId>cantor-parent</artifactId>
         <groupId>com.salesforce.cantor</groupId>
-        <version>0.5.16-SNAPSHOT</version>
+        <version>0.5.23</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cantor-server</artifactId>
+    <name>cantor-server</name>
     <packaging>jar</packaging>
 
     <description>Home of the Cantor server capable of starting in HTTP, gRPC, or both</description>
