@@ -10,11 +10,12 @@
     <parent>
         <artifactId>cantor-parent</artifactId>
         <groupId>com.salesforce.cantor</groupId>
-        <version>0.5.23-SNAPSHOT</version>
+        <version>0.5.23</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cantor-http-server</artifactId>
+    <name>cantor-http-server</name>
 
     <properties>
         <jersey.version>4.0.0</jersey.version>

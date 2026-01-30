@@ -12,13 +12,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cantor-grpc-service</artifactId>
+    <name>cantor-grpc-service</name>
 
     <description>Service layer for gRPC Cantor</description>
 
     <parent>
         <groupId>com.salesforce.cantor</groupId>
         <artifactId>cantor-parent</artifactId>
-        <version>0.5.23-SNAPSHOT</version>
+        <version>0.5.23</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
